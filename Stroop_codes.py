@@ -141,7 +141,42 @@ while continueRoutine:
         win.timeOnFlip(instrText, 'tStartRefresh')  # time at next scr refresh
         instrText.setAutoDraw(True)
         
-        
+         # *ready* updates
+    waitOnFlip = False
+    if ready.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
+        # keep track of start time/frame for later
+        ready.frameNStart = frameN  # exact frame index
+        ready.tStart = t  # local t and not account for scr refresh
+        ready.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(ready, 'tStartRefresh')  # time at next scr refresh
+        ready.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(ready.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(ready.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if ready.status == STARTED and not waitOnFlip:
+        theseKeys = ready.getKeys(keyList=None, waitRelease=False)
+        _ready_allKeys.extend(theseKeys)
+        if len(_ready_allKeys):
+            ready.keys = _ready_allKeys[-1].name  # just the last key pressed
+            ready.rt = _ready_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in instructComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    
 
 
 
