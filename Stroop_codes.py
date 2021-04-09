@@ -123,5 +123,26 @@ _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 instructClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
+# -------Run Routine "instruct"-------
+while continueRoutine:
+    # get current time
+    t = instructClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=instructClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *instrText* updates
+    if instrText.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
+        # keep track of start time/frame for later
+        instrText.frameNStart = frameN  # exact frame index
+        instrText.tStart = t  # local t and not account for scr refresh
+        instrText.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(instrText, 'tStartRefresh')  # time at next scr refresh
+        instrText.setAutoDraw(True)
+        
+        
+
+
 
 
