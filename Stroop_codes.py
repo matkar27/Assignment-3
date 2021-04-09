@@ -66,5 +66,27 @@ else:
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
 
+# Initialize components for Routine "instruct"
+instructClock = core.Clock()
+instrText = visual.TextStim(win=win, name='instrText',
+    text='OK. Ready for the real thing?\n\nRemember, ignore the word itself; press:\nLeft for red LETTERS\nDown for green LETTERS\nRight for blue LETTERS\n(Esc will quit)\n\nPress any key to continue',
+    font='Arial',
+    units='height', pos=[0, 0], height=0.05, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=0.0);
+ready = keyboard.Keyboard()
+
+# Initialize components for Routine "trial"
+trialClock = core.Clock()
+word = visual.TextStim(win=win, name='word',
+    text='default text',
+    font='Arial',
+    units='height', pos=[0, 0], height=0.15, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=0.0);
+resp = keyboard.Keyboard()
+
 
 
