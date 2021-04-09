@@ -203,6 +203,55 @@ thisExp.addData('instrText.stopped', instrText.tStopRefresh)
 # the Routine "instruct" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
+for thisTrial in trials:
+    currentLoop = trials
+    # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
+    if thisTrial != None:
+        for paramName in thisTrial:
+            exec('{} = thisTrial[paramName]'.format(paramName))
+    
+    # ------Prepare to start Routine "trial"-------
+    continueRoutine = True
+    # update component parameters for each repeat
+    word.setColor(letterColor, colorSpace='rgb')
+    word.setText(text)
+    resp.keys = []
+    resp.rt = []
+    _resp_allKeys = []
+    # keep track of which components have finished
+    trialComponents = [word, resp]
+    for thisComponent in trialComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    trialClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+    
+    # -------Run Routine "trial"-------
+    while continueRoutine:
+        # get current time
+        t = trialClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=trialClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *word* updates
+        if word.status == NOT_STARTED and tThisFlip >= 0.5-frameTolerance:
+            # keep track of start time/frame for later
+            word.frameNStart = frameN  # exact frame index
+            word.tStart = t  # local t and not account for scr refresh
+            word.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(word, 'tStartRefresh')  # time at next scr refresh
+            word.setAutoDraw(True)
+            
+            
 
 
 
