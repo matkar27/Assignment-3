@@ -176,7 +176,20 @@ while continueRoutine:
             continueRoutine = True
             break  # at least one component has not yet finished
     
-    
+     # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "instruct"-------
+for thisComponent in instructComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('instrText.started', instrText.tStartRefresh)
+thisExp.addData('instrText.stopped', instrText.tStopRefresh)
+# the Routine "instruct" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+
 
 
 
