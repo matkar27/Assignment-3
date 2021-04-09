@@ -56,6 +56,20 @@ win = visual.Window(
     blendMode='avg', useFBO=True, 
     units='height')
 
+# set up handler to look after randomisation of conditions etc
+trials = data.TrialHandler(nReps=5, method='random', 
+    extraInfo=expInfo, originPath=-1,
+    trialList=data.importConditions('trialTypes.xls'),
+    seed=None, name='trials')
+thisExp.addLoop(trials)  # add the loop to the experiment
+thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
+# abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
+if thisTrial != None:
+    for paramName in thisTrial:
+        exec('{} = thisTrial[paramName]'.format(paramName))
+        
+        
+
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
 if expInfo['frameRate'] != None:
