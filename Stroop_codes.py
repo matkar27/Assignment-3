@@ -251,6 +251,48 @@ for thisTrial in trials:
             win.timeOnFlip(word, 'tStartRefresh')  # time at next scr refresh
             word.setAutoDraw(True)
             
+             # *resp* updates
+        waitOnFlip = False
+        if resp.status == NOT_STARTED and tThisFlip >= 0.5-frameTolerance:
+            # keep track of start time/frame for later
+            resp.frameNStart = frameN  # exact frame index
+            resp.tStart = t  # local t and not account for scr refresh
+            resp.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(resp, 'tStartRefresh')  # time at next scr refresh
+            resp.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(resp.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if resp.status == STARTED and not waitOnFlip:
+            theseKeys = resp.getKeys(keyList=['left', 'down', 'right'], waitRelease=False)
+            _resp_allKeys.extend(theseKeys)
+            if len(_resp_allKeys):
+                resp.keys = _resp_allKeys[-1].name  # just the last key pressed
+                resp.rt = _resp_allKeys[-1].rt
+                # was this correct?
+                if (resp.keys == str(corrAns)) or (resp.keys == corrAns):
+                    resp.corr = 1
+                else:
+                    resp.corr = 0
+                # a response ends the routine
+                continueRoutine = False
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in trialComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        
+            
             
 
 
