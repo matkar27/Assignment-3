@@ -320,6 +320,35 @@ for thisTrial in trials:
     routineTimer.reset()
     thisExp.nextEntry()
     
+    # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "trial"-------
+    for thisComponent in trialComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    trials.addData('word.started', word.tStartRefresh)
+    trials.addData('word.stopped', word.tStopRefresh)
+    # check responses
+    if resp.keys in ['', [], None]:  # No response was made
+        resp.keys = None
+        # was no response the correct answer?!
+        if str(corrAns).lower() == 'none':
+           resp.corr = 1;  # correct non-response
+        else:
+           resp.corr = 0;  # failed to respond (incorrectly)
+    # store data for trials (TrialHandler)
+    trials.addData('resp.keys',resp.keys)
+    trials.addData('resp.corr', resp.corr)
+    if resp.keys != None:  # we had a response
+        trials.addData('resp.rt', resp.rt)
+    trials.addData('resp.started', resp.tStartRefresh)
+    trials.addData('resp.stopped', resp.tStopRefresh)
+    # the Routine "trial" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    thisExp.nextEntry()
+    
     
                 
                 
