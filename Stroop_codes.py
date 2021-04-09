@@ -419,7 +419,20 @@ while continueRoutine and routineTimer.getTime() > 0:
             continueRoutine = True
             break  # at least one component has not yet finished
     
-                
+         # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "thanks"-------
+for thisComponent in thanksComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('thanksText.started', thanksText.tStartRefresh)
+thisExp.addData('thanksText.stopped', thanksText.tStopRefresh)
+
+# Flip one final time so any remaining win.callOnFlip() 
+# and win.timeOnFlip() tasks get executed before quitting
+win.flip()       
                 
         
         
