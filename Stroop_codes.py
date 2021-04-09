@@ -380,7 +380,45 @@ _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 thanksClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
-
+# -------Run Routine "thanks"-------
+while continueRoutine and routineTimer.getTime() > 0:
+    # get current time
+    t = thanksClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=thanksClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *thanksText* updates
+    if thanksText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        thanksText.frameNStart = frameN  # exact frame index
+        thanksText.tStart = t  # local t and not account for scr refresh
+        thanksText.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(thanksText, 'tStartRefresh')  # time at next scr refresh
+        thanksText.setAutoDraw(True)
+    if thanksText.status == STARTED:
+        # is it time to stop? (based on global clock, using actual start)
+        if tThisFlipGlobal > thanksText.tStartRefresh + 2.0-frameTolerance:
+            # keep track of stop time/frame for later
+            thanksText.tStop = t  # not accounting for scr refresh
+            thanksText.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(thanksText, 'tStopRefresh')  # time at next scr refresh
+            thanksText.setAutoDraw(False)
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in thanksComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
                 
                 
         
