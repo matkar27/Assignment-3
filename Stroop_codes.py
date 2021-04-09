@@ -88,5 +88,40 @@ word = visual.TextStim(win=win, name='word',
     depth=0.0);
 resp = keyboard.Keyboard()
 
+# Initialize components for Routine "thanks"
+thanksClock = core.Clock()
+thanksText = visual.TextStim(win=win, name='thanksText',
+    text='This is the end of the experiment.\n\nThanks!',
+    font='Arial',
+    units='height', pos=[0, 0], height=0.05, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=0.0);
+
+# Create some handy timers
+globalClock = core.Clock()  # to track the time since experiment started
+routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
+
+# ------Prepare to start Routine "instruct"-------
+continueRoutine = True
+# update component parameters for each repeat
+ready.keys = []
+ready.rt = []
+_ready_allKeys = []
+# keep track of which components have finished
+instructComponents = [instrText, ready]
+for thisComponent in instructComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+instructClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
 
 
