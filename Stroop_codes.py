@@ -56,5 +56,15 @@ win = visual.Window(
     blendMode='avg', useFBO=True, 
     units='height')
 
+# store frame rate of monitor if we can measure it
+expInfo['frameRate'] = win.getActualFrameRate()
+if expInfo['frameRate'] != None:
+    frameDur = 1.0 / round(expInfo['frameRate'])
+else:
+    frameDur = 1.0 / 60.0  # could not measure, so guess
+
+# create a default keyboard (e.g. to check for escape)
+defaultKeyboard = keyboard.Keyboard()
+
 
 
