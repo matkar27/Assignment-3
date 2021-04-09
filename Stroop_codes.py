@@ -349,7 +349,38 @@ for thisTrial in trials:
     routineTimer.reset()
     thisExp.nextEntry()
     
-    
+    # completed 5 repeats of 'trials'
+
+# get names of stimulus parameters
+if trials.trialList in ([], [None], None):
+    params = []
+else:
+    params = trials.trialList[0].keys()
+# save data for this loop
+trials.saveAsExcel(filename + '.xlsx', sheetName='trials',
+    stimOut=params,
+    dataOut=['n','all_mean','all_std', 'all_raw'])
+
+# ------Prepare to start Routine "thanks"-------
+continueRoutine = True
+routineTimer.add(2.000000)
+# update component parameters for each repeat
+# keep track of which components have finished
+thanksComponents = [thanksText]
+for thisComponent in thanksComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+thanksClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+
                 
                 
         
