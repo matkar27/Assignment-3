@@ -15,11 +15,11 @@ import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
 
-# Ensure that relative paths start from the same directory as this script
+# Ensuring that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 
-# Store info about the experiment session
+# Storing info about the experiment session
 psychopyVersion = '2020.2.10'
 expName = 'stroop'  # from the Builder filename that created this script
 expInfo = {'session': '01', 'participant': ''}
@@ -48,7 +48,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # Start Code - component code to be run after the window creation
 
-# Setup the Window
+# Setting up the Window
 win = visual.Window(
     size=[1920, 1080], fullscr=True, screen=0, 
     winType='pyglet', allowGUI=False, allowStencil=False,
@@ -56,7 +56,7 @@ win = visual.Window(
     blendMode='avg', useFBO=True, 
     units='height')
 
-# set up handler to look after randomisation of conditions etc
+# setting up handler to look after randomisation of conditions etc
 trials = data.TrialHandler(nReps=5, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('trialTypes.xls'),
@@ -70,14 +70,14 @@ if thisTrial != None:
         
         
 
-# store frame rate of monitor if we can measure it
+# storing frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
 if expInfo['frameRate'] != None:
     frameDur = 1.0 / round(expInfo['frameRate'])
 else:
-    frameDur = 1.0 / 60.0  # could not measure, so guess
+    frameDur = 1.0 / 60.0  # could not measure, guess
 
-# create a default keyboard (e.g. to check for escape)
+# creating a default keyboard
 defaultKeyboard = keyboard.Keyboard()
 
 # Initialize components for Routine "instruct"
@@ -112,7 +112,7 @@ thanksText = visual.TextStim(win=win, name='thanksText',
     languageStyle='LTR',
     depth=0.0);
 
-# Create some handy timers
+# Creating some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
 
@@ -194,7 +194,7 @@ while continueRoutine:
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
 
-# -------Ending Routine "instruct"-------
+# Ending Routine "instruct"
 for thisComponent in instructComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
@@ -210,15 +210,15 @@ for thisTrial in trials:
         for paramName in thisTrial:
             exec('{} = thisTrial[paramName]'.format(paramName))
     
-    # ------Prepare to start Routine "trial"-------
+    # Preparing to start Routine "trial"
     continueRoutine = True
-    # update component parameters for each repeat
+    # updating component parameters for each repeat
     word.setColor(letterColor, colorSpace='rgb')
     word.setText(text)
     resp.keys = []
     resp.rt = []
     _resp_allKeys = []
-    # keep track of which components have finished
+    # track of which components have finished
     trialComponents = [word, resp]
     for thisComponent in trialComponents:
         thisComponent.tStart = None
@@ -233,7 +233,7 @@ for thisTrial in trials:
     trialClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
     
-    # -------Run Routine "trial"-------
+    # Routine "trial"
     while continueRoutine:
         # get current time
         t = trialClock.getTime()
